@@ -33,6 +33,32 @@ class UI{
   }
 
   clearProfile(){
-    this.profile.innerHTML='' //clear the dynamically inserted HTML
+    this.profile.innerHTML='';//clear the dynamically inserted HTML
+  }
+
+  showAlert(message,classes){
+    this.clearAlert();
+    const div = document.createElement('div');
+    div.className=classes;
+    div.appendChild(document.createTextNode(message));
+
+    //get parent
+    const container = document.querySelector('.searchContainer');
+    const search = document.querySelector('.search');
+
+    container.insertBefore(div,search);
+
+    // Timeout after 3s
+    setTimeout(function(){
+      container.removeChild(document.querySelector('.alert'))
+    },3000);
+
+  }
+
+  clearAlert(){
+    const currentAlert = document.querySelector('.alert');
+    if(currentAlert){
+      currentAlert.remove();
+    }
   }
 }
