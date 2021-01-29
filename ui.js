@@ -49,9 +49,7 @@ class UI{
     container.insertBefore(div,search);
 
     // Timeout after 3s
-    setTimeout(function(){
-      container.removeChild(document.querySelector('.alert'))
-    },3000);
+    setTimeout(()=>this.clearAlert(),3000);
 
   }
 
